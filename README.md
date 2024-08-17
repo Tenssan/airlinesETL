@@ -92,7 +92,7 @@ Se elimina las filas que contienen valores nulos en el DataFrame merged_chunk, c
 
 ![](/imgs/subir_a_postgres_etl_crossing.png)
 
-### 2.11.4 Cambios a tablas en PostgreSQL
+### 2.12 Cambios a tablas en PostgreSQL
 
 ![](/imgs/cambio_a_tablas_en_postgres1.png)
 
