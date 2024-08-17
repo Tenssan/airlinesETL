@@ -1,5 +1,14 @@
 # Proyecto ETL de Aerolíneas
 
+# Índice
+
+1. [Resumen Ejecutivo](#1-resumen-ejecutivo)
+2. [Documentación Código ETL](#2-documentación-código-etl)
+3. [Tuplas modificadas o eliminadas](#3-tuplas-modificadas-o-eliminadas)
+4. [Tiempo de procesamiento](#4-tiempo-de-procesamiento)
+5. [Gráficos y vistas](#5-gráficos-y-vistas)
+6. [Diagrama de base de datos](#6-diagrama-de-base-de-datos)
+
 ## 1 Resumen Ejecutivo
 
 Este informe ofrece un análisis exhaustivo del proceso de Extracción, Transformación y Carga (ETL) aplicado a los archivos, así como del análisis de datos realizado mediante la herramienta visual Power BI. El objetivo principal ha sido obtener información significativa y respaldar la toma de decisiones informadas.
