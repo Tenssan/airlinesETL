@@ -3,11 +3,10 @@
 ## Resumen Ejecutivo
 
 Este informe ofrece un análisis exhaustivo del proceso de Extracción, Transformación y Carga (ETL) aplicado a los archivos, así como del análisis de datos realizado mediante la herramienta visual Power BI. El objetivo principal ha sido obtener información significativa y respaldar la toma de decisiones informadas.
-En la introducción, se detallan los pasos clave del proceso ETL, incluyendo la extracción por bloques, la traducción y exportación de archivos y la extracción hacia una base de datos mediante un modelo multidimensional. Se resalta el papel fundamental de Power BI como herramienta visual para el análisis de datos.
 Durante el proceso de análisis, se priorizó la satisfacción del cliente y se consideraron otros datos relacionados con las evaluaciones de los vuelos. Se identificó que la diferencia entre el tiempo estimado y real del vuelo, así como aspectos como el wifi, el servicio a bordo y la limpieza, influyen en la satisfacción de los clientes, aunque también se reconoció que dichos factores varían según la apreciación individual de cada cliente.
 Asimismo, se analizó el perfil de los clientes, incluyendo el tipo de cliente, el tipo de viaje y la clase a la que pertenecen, y se estableció una relación entre estos datos y la satisfacción del cliente. Este análisis permitió identificar áreas de mejora en los servicios ofrecidos por las aerolíneas, con el objetivo de potenciar aquellas que han recibido opiniones negativas.
 La aplicación de Power BI ha sido crucial para visualizar la información recopilada y procesada durante el proceso ETL. Las herramientas visuales, como gráficos y tablas, han facilitado la comprensión tanto de los datos generales como de los detalles específicos, lo que ha permitido tomar decisiones informadas en base a la información visualizada.
-El proceso de ETL aplicado a los archivos y el análisis de datos mediante Power BI han brindado una visión clara y detallada de la información recopilada. El enfoque en la satisfacción del cliente y la identificación de áreas de mejora han sido fundamentales para impulsar la toma de decisiones estratégicas. El uso de herramientas visuales ha enriquecido el proceso de análisis y ha facilitado la comprensión de la información, fortaleciendo así la capacidad para tomar decisiones informadas y mejorar los servicios de las aerolíneas.
+El proceso de ETL aplicado a los archivos y el análisis de datos mediante Power BI han brindado una visión clara y detallada de la información recopilada. El enfoque en la satisfacción del cliente y la identificación de áreas de mejora han sido fundamentales para impulsar la toma de decisiones estratégicas. El uso de herramientas visuales ha enriquecido el proceso de análisis y ha facilitado la comprensión de la información, fortaleciendo así la capacidad para en un futuro tomar decisiones informadas y mejorar los servicios de las aerolíneas.
 
 ## Documentación Código ETL
 
@@ -18,7 +17,7 @@ foto
 - merge_and_concat: Esta función recibe una lista de "chunks" (fragmentos) de DataFrames como entrada y realiza dos operaciones principales: la fusión de cada fragmento con otro DataFrame utilizando una columna común como clave de unión y la concatenación de todos los fragmentos en un solo DataFrame.
 - reemplazar_valores:  Esta función toma como entrada un DataFrame y una lista de mapeos que contienen información sobre las columnas y los valores que se deben reemplazar en esas columnas.
 
-####Traducción de columnas manualmente
+### Traducción de columnas manualmente
 Se traducen individualmente las columnas no detectadas por la librería para que no ocurran problemas en el análisis.
 
 ### Convertir DataFrame de ETL Passenger a CSV
