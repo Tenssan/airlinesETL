@@ -56,9 +56,9 @@ En este caso, se renombran las columnas del DataFrame cambiando 'IATA_CODE' a 'C
 
 Para finalizar las transformaciones, se realiza una serie de transformaciones en el DataFrame Cambia el nombre de la columna 'IATA_CODE' a 'CODIGO DE AEROPUERTO', realiza la traducción de los nombres de columna, capitaliza la primera letra de cada nombre de columna, elimina las columnas 'Latitud' y 'Longitud', y finalmente guarda el DataFrame resultante en un archivo CSV llamado "airPortsETL.csv".
 
-![](/imgs/convertir_airport_a_csv1.png)
+![](/imgs/convertir_airports_a_csv1.png)
 
-![](/imgs/convertir_airport_a_csv2.png)
+![](/imgs/convertir_airports_a_csv2.png)
 
 ### Cruzamiento de DataFrames en base a la Columna 'Número De Vuelo
 
@@ -76,7 +76,7 @@ Se realiza una serie de operaciones en el DataFrame merged_chunk. Se eliminan la
 
 Se elimina las filas que contienen valores nulos en el DataFrame merged_chunk, configura la opción para mostrar todas las columnas y guarda el DataFrame resultante en un archivo Excel.
 
-![](/imgs/eliminar_valores_nulos_y_transformar_a_csv.png)
+![](/imgs/eliminar_valorers_nulos_y_transformar_a_csv.png)
 
 ### Subir ETL a PostgreSQL
 
