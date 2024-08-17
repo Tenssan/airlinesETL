@@ -12,7 +12,7 @@ El proceso de ETL aplicado a los archivos y el análisis de datos mediante Power
 
 ### Carga de datos
 
-foto
+![Carga de datos](/imgs/carga_de_datos.png)
 
 ### Funciones
 
