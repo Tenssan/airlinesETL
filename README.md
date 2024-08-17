@@ -1,6 +1,6 @@
 # Proyecto ETL de Aerolíneas
 
-## Resumen Ejecutivo
+## 1 Resumen Ejecutivo
 
 Este informe ofrece un análisis exhaustivo del proceso de Extracción, Transformación y Carga (ETL) aplicado a los archivos, así como del análisis de datos realizado mediante la herramienta visual Power BI. El objetivo principal ha sido obtener información significativa y respaldar la toma de decisiones informadas.
 Durante el proceso de análisis, se priorizó la satisfacción del cliente y se consideraron otros datos relacionados con las evaluaciones de los vuelos. Se identificó que la diferencia entre el tiempo estimado y real del vuelo, así como aspectos como el wifi, el servicio a bordo y la limpieza, influyen en la satisfacción de los clientes, aunque también se reconoció que dichos factores varían según la apreciación individual de cada cliente.
@@ -8,13 +8,13 @@ Asimismo, se analizó el perfil de los clientes, incluyendo el tipo de cliente, 
 La aplicación de Power BI ha sido crucial para visualizar la información recopilada y procesada durante el proceso ETL. Las herramientas visuales, como gráficos y tablas, han facilitado la comprensión tanto de los datos generales como de los detalles específicos, lo que ha permitido tomar decisiones informadas en base a la información visualizada.
 El proceso de ETL aplicado a los archivos y el análisis de datos mediante Power BI han brindado una visión clara y detallada de la información recopilada. El enfoque en la satisfacción del cliente y la identificación de áreas de mejora han sido fundamentales para impulsar la toma de decisiones estratégicas. El uso de herramientas visuales ha enriquecido el proceso de análisis y ha facilitado la comprensión de la información, fortaleciendo así la capacidad para en un futuro tomar decisiones informadas y mejorar los servicios de las aerolíneas.
 
-## Documentación Código ETL
+## 2 Documentación Código ETL
 
-### Carga de datos
+### 2.1 Carga de datos
 
 ![](/imgs/carga_de_datos.png)
 
-### Funciones
+### 2.2 Funciones
 
 - traducir_texto: Esta función es utilizada para traducir un texto recibido como parámetro a través de Google Translator obteniendo el texto ya traducido al español.
 - merge_and_concat: Esta función recibe una lista de "chunks" (fragmentos) de DataFrames como entrada y realiza dos operaciones principales: la fusión de cada fragmento con otro DataFrame utilizando una columna común como clave de unión y la concatenación de todos los fragmentos en un solo DataFrame.
@@ -22,13 +22,13 @@ El proceso de ETL aplicado a los archivos y el análisis de datos mediante Power
 
 ![](/imgs/funciones.png)
 
-### Traducción de columnas manualmente
+### 2.3 Traducción de columnas manualmente
 
 Se traducen individualmente las columnas no detectadas por la librería para que no ocurran problemas en el análisis.
 
 ![](/imgs/traduccion.png)
 
-### Convertir DataFrame de ETL Passenger a CSV
+### 2.4 Convertir DataFrame de ETL Passenger a CSV
 
 Se reemplazan valores en un DataFrame aplicando la función anteriormente mencionada, actualiza los nombres de columna capitalizando la primera letra de cada palabra, configura la visualización para mostrar todas las columnas y luego se guarda el DataFrame en un archivo CSV.
 
@@ -36,7 +36,7 @@ Se reemplazan valores en un DataFrame aplicando la función anteriormente mencio
 
 ![](/imgs/convertir_passenger_a_csv2.png)
 
-### Convertir Dataframe de ETL Flights a CSV
+### 2.5 Convertir Dataframe de ETL Flights a CSV
 
 Se realiza una serie de transformaciones en un DataFrame aplicando la función traducir_texto anteriormente mencionado. Reemplaza los nombres de columna por sus traducciones, capitaliza la primera letra de cada nombre de columna, renombra columnas específicas, elimina las columnas no deseadas para el análisis de datos, configura la visualización para mostrar todas las columnas y finalmente guarda el DataFrame resultante en un archivo CSV.
 
@@ -44,7 +44,7 @@ Se realiza una serie de transformaciones en un DataFrame aplicando la función t
 
 ![](/imgs/convertir_flights_a_csv2.png)
 
-### Convertir Dataframe de ETL Airline a CSV
+### 2.6 Convertir Dataframe de ETL Airline a CSV
 
 En este caso, se renombran las columnas del DataFrame cambiando 'IATA_CODE' a 'CODIGO DE LA AEROLINEA' y 'AIRLINE' a 'AEROLINEA'. Luego, capitaliza la primera letra de cada nombre de columna y finalmente guarda el DataFrame resultante en un archivo CSV llamado "airlineETL.csv".
 
@@ -52,7 +52,7 @@ En este caso, se renombran las columnas del DataFrame cambiando 'IATA_CODE' a 'C
 
 ![](/imgs/convertir_airline_a_csv2.png)
 
-### Convertir Dataframe de ETL Airport a CSV
+### 2.7 Convertir Dataframe de ETL Airport a CSV
 
 Para finalizar las transformaciones, se realiza una serie de transformaciones en el DataFrame Cambia el nombre de la columna 'IATA_CODE' a 'CODIGO DE AEROPUERTO', realiza la traducción de los nombres de columna, capitaliza la primera letra de cada nombre de columna, elimina las columnas 'Latitud' y 'Longitud', y finalmente guarda el DataFrame resultante en un archivo CSV llamado "airPortsETL.csv".
 
@@ -60,47 +60,47 @@ Para finalizar las transformaciones, se realiza una serie de transformaciones en
 
 ![](/imgs/convertir_airports_a_csv2.png)
 
-### Cruzamiento de DataFrames en base a la Columna 'Número De Vuelo
+### 2.8 Cruzamiento de DataFrames en base a la Columna 'Número De Vuelo
 
 Se realiza una copia del DataFrame1 para luego comenzar con una fusión iterativa de DataFrames utilizando bucles anidados. Se fusionan fragmentos de DataFrames basados en la columna 'Número De Vuelo'. El proceso permite combinar eficientemente los datos de múltiples fragmentos en un único DataFrame consolidado.
 
 ![](/imgs/cruzamiento_df_numero_vuelo.png)
 
-### Eliminar columnas con valores repetidos
+### 2.9 Eliminar columnas con valores repetidos
 
 Se realiza una serie de operaciones en el DataFrame merged_chunk. Se eliminan las columnas 'Retraso de partida', 'Retraso En La Llegada', 'Id' y 'Ruedas Apagadas' del DataFrame.
 
 ![](/imgs/eliminar_columnas_valores_repetidos.png)
 
-### Eliminar valores nulos y transformar ETL Crossing a CSV
+### 2.10 Eliminar valores nulos y transformar ETL Crossing a CSV
 
 Se elimina las filas que contienen valores nulos en el DataFrame merged_chunk, configura la opción para mostrar todas las columnas y guarda el DataFrame resultante en un archivo Excel.
 
 ![](/imgs/eliminar_valorers_nulos_y_transformar_a_csv.png)
 
-### Subir ETL a PostgreSQL
+### 2.11 Subir ETL a PostgreSQL
 
-#### ETL Airports
+#### 2.11.1 ETL Airports
 
 ![](/imgs/subir_a_postgres_etl_airports.png)
 
-#### ETL Airline
+#### 2.11.2 ETL Airline
 
 ![](/imgs/subir_a_postgres_etl_airline.png)
 
-#### ETL Crossing
+#### 2.11.3 ETL Crossing
 
 ![](/imgs/subir_a_postgres_etl_crossing.png)
 
-### Cambios a tablas en PostgreSQL
+### 2.11.4 Cambios a tablas en PostgreSQL
 
 ![](/imgs/cambio_a_tablas_en_postgres1.png)
 
 ![](/imgs/cambio_a_tablas_en_postgres2.png)
 
-## Tuplas modificadas o eliminadas
+## 3 Tuplas modificadas o eliminadas
 
-### Airports
+### 3.1 Airports
 
 Se eliminan las columnas de “Latitud” y “Longitud”, ya que no las consideramos relevantes para el análisis.
 
@@ -112,7 +112,7 @@ Se eliminan las columnas de “Latitud” y “Longitud”, ya que no las consid
 | Columnas eliminadas  | 2            |
 | Tuplas eliminadas    | 0            |
 
-### Airlines
+### 3.2 Airlines
 
 Se mantienen todos los datos, al ser datos básicos de la Aerolínea.
 
@@ -124,7 +124,7 @@ Se mantienen todos los datos, al ser datos básicos de la Aerolínea.
 | Columnas eliminadas  | 0            |
 | Tuplas eliminadas    | 0            |
 
-### Flights
+### 3.3 Flights
 
 Se eliminan 5 columnas, "Dia de la semana", "Taxi fuera", "Taxi en", "Ruedas encendidas" y "Salida programada", que tal como sus nombres indican para algunas no son relevantes para el análisis y para las demás, ya se tiene la misma información indicada de otra forma la cual será suficiente, donde de la misma forma se reducirá la carga de la información del archivo.
 
@@ -136,7 +136,7 @@ Se eliminan 5 columnas, "Dia de la semana", "Taxi fuera", "Taxi en", "Ruedas enc
 | Columnas eliminadas  | 5            |
 | Tuplas eliminadas    | 0            |
 
-### Passenger Evaluation
+### 3.4 Passenger Evaluation
 
 Se mantienen todos los datos, ya que en su mayoría son datos del pasajero y notas de satisfacción de acuerdo al servicio proporcionado por parte de las aerolíneas.
 
@@ -148,7 +148,7 @@ Se mantienen todos los datos, ya que en su mayoría son datos del pasajero y not
 | Columnas eliminadas  | 0            |
 | Tuplas eliminadas    | 0            |
 
-### Crossing
+### 3.5 Crossing
 
 Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irrelevantes para el análisis según nuestro criterio. Por otra parte, para las tuplas se realizó una eliminación de todas las que tengan valores nulos, ya que eso significará que no tienen coincidencias de alguna información, por lo tanto, serán tuplas que no se considerarán para el análisis de la información final.
 
@@ -160,9 +160,9 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 | Columnas eliminadas  | 4            |
 | Tuplas eliminadas    | 4.140        |
 
-## Tiempo de procesamiento
+## 4 Tiempo de procesamiento
 
-### ETL Air Ports
+### 4.1 ETL Air Ports
 
 | Operación              | Tiempo (s)  |
 | ---------------------- | ----------- |
@@ -171,7 +171,7 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 | Carga a PostgreSQL     | 1,66814     |
 | **Tiempo total**       | **3,35126** |
 
-### ETL Airline
+### 4.2 ETL Airline
 
 | Operación              | Tiempo (s)  |
 | ---------------------- | ----------- |
@@ -180,7 +180,7 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 | Carga a PostgreSQL     | 0,04986     |
 | **Tiempo total**       | **0,05284** |
 
-### ETL Flights
+### 4.3 ETL Flights
 
 | Operación              | Tiempo (s)  |
 | ---------------------- | ----------- |
@@ -189,7 +189,7 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 | Carga a PostgreSQL     | 0           |
 | **Tiempo total**       | **99,8899** |
 
-### ETL Passenger Evaluation
+### 4.4 ETL Passenger Evaluation
 
 | Operación              | Tiempo (s)  |
 | ---------------------- | ----------- |
@@ -200,7 +200,7 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 
 > **Observación:** Para las anteriores 2 tablas de procesamiento, en la fila de carga a PostgreSQL, se mantienen en 0 por el hecho que no se hace la carga directamente desde esos archivos, sino del cruzamiento que se realiza y a partir del archivo resultante de ellos.
 
-### ETL Crossing
+### 4.5 ETL Crossing
 
 | Operación              | Tiempo (s)  |
 | ---------------------- | ----------- |
@@ -209,41 +209,41 @@ Para el cruzamiento se eliminan 4 columnas que están repetidas y/o son irreleva
 | Carga a PostgreSQL     | 108,755     |
 | **Tiempo total**       | **123,226** |
 
-## Gráficos y vistas
+## 5 Gráficos y vistas
 
-### General
+### 5.1 General
 
 Se puede visualizar un análisis general de las partes más importantes del análisis de datos. Como puntos fuertes a evaluar en este dashboard es la cantidad de vuelos que realiza una aerolínea, la cantidad de clientes que tiene cada tipo de cliente y la cantidad de vuelos por aerolíneas.
 Además, en el apartado de cantidades de clientes por vuelo se realizó un Top 10 para ayudar un poco el análisis.
 
 ![](/imgs/powerbi_general.png)
 
-### Vuelos
+### 5.2 Vuelos
 
 En este dashboard se evalúan los tiempos de vuelos de las aerolíneas y las cantidades de evaluaciones que tuvieron esos vuelos, además se añadió la opción de poder visualizar la razón de viaje, si es viaje personal o de trabajo, para así saber el tipo de viaje con respecto a la cantidad de horas de vuelo que se llega a hacer por trabajo.
 
 ![](/imgs/powerbi_vuelos.png)
 
-### Satisfacción
+### 5.3 Satisfacción
 
 Consiste en evaluar la satisfacción que tuvieron los clientes en el viaje que realizaron, en la clase que viajaron y la aerolínea que utilizaron.
 
 ![](/imgs/powerbi_satisfaccion.png)
 
-### Clientes
+### 5.4 Clientes
 
 Se detalla toda la información relevante de los clientes, la clase que utiliza, el tipo de vuelo que hace y el tipo de cliente que es con respecto al viaje que realizó.
 
 ![](/imgs/powerbi_clientes.png)
 
 
-### Ubicaciones
+### 5.5 Ubicaciones
 
 Detalla las ubicaciones exactas de cada aeródromo y un Top 10 de los aeródromos que más vuelos realizaron.
 
 ![](/imgs/powerbi_ubicaciones.png)
 
-## Diagrama de base de datos
+## 6 Diagrama de base de datos
 
 3 Tablas como Dimensión y 1 de Hechos, con modelo de forma estrella.
 
