@@ -32,39 +32,39 @@ Se traducen individualmente las columnas no detectadas por la librería para que
 
 Se reemplazan valores en un DataFrame aplicando la función anteriormente mencionada, actualiza los nombres de columna capitalizando la primera letra de cada palabra, configura la visualización para mostrar todas las columnas y luego se guarda el DataFrame en un archivo CSV.
 
-![](/imgs/covertir_passenger_a_csv1.png)
+![](/imgs/convertir_passenger_a_csv1.png)
 
-![](/imgs/covertir_passenger_a_csv2.png)
+![](/imgs/convertir_passenger_a_csv2.png)
 
 ### Convertir Dataframe de ETL Flights a CSV
 
 Se realiza una serie de transformaciones en un DataFrame aplicando la función traducir_texto anteriormente mencionado. Reemplaza los nombres de columna por sus traducciones, capitaliza la primera letra de cada nombre de columna, renombra columnas específicas, elimina las columnas no deseadas para el análisis de datos, configura la visualización para mostrar todas las columnas y finalmente guarda el DataFrame resultante en un archivo CSV.
 
-![](/imgs/covertir_flights_a_csv1.png)
+![](/imgs/convertir_flights_a_csv1.png)
 
-![](/imgs/covertir_flights_a_csv2.png)
+![](/imgs/convertir_flights_a_csv2.png)
 
 ### Convertir Dataframe de ETL Airline a CSV
 
 En este caso, se renombran las columnas del DataFrame cambiando 'IATA_CODE' a 'CODIGO DE LA AEROLINEA' y 'AIRLINE' a 'AEROLINEA'. Luego, capitaliza la primera letra de cada nombre de columna y finalmente guarda el DataFrame resultante en un archivo CSV llamado "airlineETL.csv".
 
-![](/imgs/covertir_airline_a_csv1.png)
+![](/imgs/convertir_airline_a_csv1.png)
 
-![](/imgs/covertir_airline_a_csv2.png)
+![](/imgs/convertir_airline_a_csv2.png)
 
 ### Convertir Dataframe de ETL Airport a CSV
 
 Para finalizar las transformaciones, se realiza una serie de transformaciones en el DataFrame Cambia el nombre de la columna 'IATA_CODE' a 'CODIGO DE AEROPUERTO', realiza la traducción de los nombres de columna, capitaliza la primera letra de cada nombre de columna, elimina las columnas 'Latitud' y 'Longitud', y finalmente guarda el DataFrame resultante en un archivo CSV llamado "airPortsETL.csv".
 
-![](/imgs/covertir_airport_a_csv1.png)
+![](/imgs/convertir_airport_a_csv1.png)
 
-![](/imgs/covertir_airport_a_csv2.png)
+![](/imgs/convertir_airport_a_csv2.png)
 
 ### Cruzamiento de DataFrames en base a la Columna 'Número De Vuelo
 
 Se realiza una copia del DataFrame1 para luego comenzar con una fusión iterativa de DataFrames utilizando bucles anidados. Se fusionan fragmentos de DataFrames basados en la columna 'Número De Vuelo'. El proceso permite combinar eficientemente los datos de múltiples fragmentos en un único DataFrame consolidado.
 
-![](/imgs/cruzamiento_df_numero.png)
+![](/imgs/cruzamiento_df_numero_vuelo.png)
 
 ### Eliminar columnas con valores repetidos
 
@@ -76,7 +76,7 @@ Se realiza una serie de operaciones en el DataFrame merged_chunk. Se eliminan la
 
 Se elimina las filas que contienen valores nulos en el DataFrame merged_chunk, configura la opción para mostrar todas las columnas y guarda el DataFrame resultante en un archivo Excel.
 
-![](/imgs/eliminar_valores_nulos_y_trasnformar_a_csv.png)
+![](/imgs/eliminar_valores_nulos_y_transformar_a_csv.png)
 
 ### Subir ETL a PostgreSQL
 
